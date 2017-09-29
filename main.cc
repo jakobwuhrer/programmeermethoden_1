@@ -19,7 +19,9 @@ int char_to_int(char character){
 	return (int) character - 48;
 }
 void decode_file(){
-	in_file.open("in_file.txt");
+	//in_file.open("in_file.txt");
+	//out_file.open("out_file.txt");
+	in_file.open("test_files/moeilijk2017uit.txt");
 	out_file.open("out_file.txt");
 
 	bool already_getted = false;	
@@ -57,12 +59,10 @@ void decode_file(){
 		else character = in_file.get();
 	}
 }
-int main(){
-	decode_file();
-}
-
 void encode_file(){
-	in_file.open("in_file.txt");
+	//in_file.open("in_file.txt");
+	//out_file.open("out_file.txt");
+	in_file.open("test_files/moeilijk2017.txt");
 	out_file.open("out_file.txt");
 
 	int same_character_count = 1;
@@ -89,9 +89,25 @@ void encode_file(){
 	in_file.close();
 	out_file.close();
 }
+int lychrel(int start){
+	int current_step = start;
+	int inversion = reverse_int(start);
+	while (!
+	
+}
+int reverse_int(int n){
+	int to_return;
+	while (n>9){
+		to_return = to_return*10 + n %10;
+		n = n/10;
+	}
+	return to_return;
+}
+bool next_step_possible(int n, int m){
+	return (INT_MAX - n > m);
+}
 
 
-bool check_double_greater_int_max(int n){
-	if (n > INT_MAX-n) return false;
-	return true;
+int main(){
+	encode_file();
 }

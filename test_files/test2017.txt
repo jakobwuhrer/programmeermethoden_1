@@ -1,0 +1,37 @@
+Eerste testinvoer voor Programmeermethoden (De)Code
+
+Bevat weinig moeilijkheden: geen backslashes bijvoorbeeld.
+En alleen aan het einde wat cijfers.
+Eerst een regel met wat dezelfde letters na elkaar:
+ddfdddfddddfdddddfddddddfdddddddf
+En nog zoiets:
+hhhhhhhhthhhhhhhhhthhhhhhhhhhthhhhhhhhhhht
+En:
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwy
+Of aan het eind van een regel:
+qwertyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+Of alleen maar t's:
+ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt
+En nu een stel "lege" regels
+
+
+
+
+
+
+Hier begint de tekst weer eens.
+En wat gebeurt hier:
+tt
+tt
+tt
+tt
+ggggggggggggggghijklmnopq
+
+Dan nu de cijfers erbij.
+ab1cd2efg3456748 4847534khjk169bvbvbb196xnnvx
+En wat dubbele
+ab1111111111 111111111 1 11 111 111nbh6666666 6666666trt
+En op EEN regel:
+888888888
+En dat was het dan ...
+

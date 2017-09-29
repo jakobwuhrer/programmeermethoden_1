@@ -1,0 +1,37 @@
+Eerste testinvoer vo2r Program2e2rmethoden (De)Code
+
+Bevat weinig moeilijkheden: ge2n backslashes bijvo2rbe2ld.
+En al2e2n a2n het einde wat cijfers.
+Eerst e2n regel met wat dezelfde let2ers na elka2r:
+d2fd3fd4fd5fd6fd7f
+En nog zoiets:
+h8th9th10th11t
+En:
+w64y
+Of a2n het eind van e2n regel:
+qwerty50
+Of al2e2n ma2r t's:
+t183
+En nu e2n stel "lege" regels
+
+
+
+
+
+
+Hier begint de tekst we2r e2ns.
+En wat gebeurt hier:
+t2
+t2
+t2
+t2
+g15hijklmnopq
+
+Dan nu de cijfers erbij.
+ab\1cd\2efg\3\4\5\6\7\4\8 \4\8\4\7\5\3\4khjk\1\6\9bvbvb2\1\9\6xn2vx
+En wat dub2ele
+ab\110 \19 \1 \12 \13 \13nbh\67 \67trt
+En op E2N regel:
+\89
+En dat was het dan .3
+
