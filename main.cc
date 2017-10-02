@@ -31,7 +31,7 @@ void decode_file(){
 	int character_amount;
 
 	while(!in_file.eof()){
-		if (escape_char){
+		if (escape_char or character == '\n' or character == '\lf' or character == '\cr'){
 			out_file.put(character);
 			escape_char = false;
 		} else {
@@ -92,7 +92,12 @@ void encode_file(){
 int lychrel(int start){
 	int current_step = start;
 	int inversion = reverse_int(start);
-	while (!
+	int step_count = 0;
+	while (next_step_possible(current_step, inversion) and inversion >= 0 and (inversion != current_step)){
+		step_count ++;
+		current_step = current_step + inversion;
+		inversion = reverse_int(current_step);
+	}
 	
 }
 int reverse_int(int n){
