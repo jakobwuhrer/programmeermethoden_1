@@ -1,7 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <climits>
-#include <ctype.h>
+//#include <ctype.h>
 
 using namespace std;
 
@@ -9,7 +9,7 @@ ifstream in_file;
 ofstream out_file;
 
 void output_character(char character){
-	if (character == '\\' or isdigit(character)){
+	if (character == '\\' || isdigit(character)){
 		out_file << "\\";
 		out_file << character;
 	}
@@ -32,14 +32,14 @@ void decode_file(){
 	int character_amount;
 
 	while(!in_file.eof()){
-		if (escape_mode or character == '\n' or character == '\r'){
+		if (escape_mode || character == '\n' || character == '\r'){
 			previous_noncounter = character;
 		 	out_file.put(character);
 			escape_mode = false;
 		} else if (character == '\\'){
 			escape_mode = true;
 		} else if (isdigit(character)){
-			if (not int_mode) previous_noncounter = previous_character;
+			if (!int_mode) previous_noncounter = previous_character;
 			int_mode = true;
 			character_amount = (character_amount * 10) + char_to_int(character);
 		} else if (int_mode){
@@ -58,11 +58,58 @@ void decode_file(){
 		character = in_file.get();
 	}
 }
+
+bool next_step_possible(int reverse_number, int current_number) {
+	if (reverse_number < 0 || current_number < 0)
+		return false;
+	//return (INT_MAX - n > m);
+	return true; 
+}
+////convert char to int/////
+int chartoint(char character) {
+	return (int)(character - 48);
+}
+////isdigit function/////
+bool isdigit(char character) {
+	if (chartoint(character)>0 && chartoint(character) < 10) { return true; }
+	else { return false; }
+}
+////reverse int/////
+int reverseint(int current_number) {
+	int rev = 0;
+	while (current_number != 0) {
+		rev = rev * 10;
+		rev = rev + current_number % 10;
+		current_number = current_number / 10;
+	}
+	return rev;
+}
+////lychrel////
+int lychrel(int current_number) {
+	int cout_number = current_number;
+	int iteration_counter = 0;
+
+	int reverse_number = reverseint(current_number);
+	if (current_number == reverse_number) { cout << cout_number << "is al een palindroom" << endl; return 0; }
+	do {
+		current_number = reverse_number + current_number;
+		reverse_number = reverseint(current_number);
+		iteration_counter++;
+	}while (next_step_possible(reverse_number, current_number) && (reverse_number != current_number));
+	
+	if (reverseint(current_number) == current_number){
+		cout << current_number << " is een palindroom van " << cout_number << " na " << iteration_counter << " iteraties"<< endl;
+	}
+
+	if (next_step_possible(reverse_number, current_number) == false) { 
+		cout << cout_number << "lychrel number found after " << iteration_counter << " iteraties" <<endl; 
+	}
+}
 void encode_file(){
-	//in_file.open("in_file.txt");
-	//out_file.open("out_file.txt");
-	in_file.open("test_files/moeilijk2017.txt");
+	in_file.open("in_file.txt");
 	out_file.open("out_file.txt");
+	//in_file.open("test_files/moeilijk2017.txt");
+	//out_file.open("out_file.txt");
 
 	int same_character_count = 1;
 	char next_character;
@@ -72,16 +119,15 @@ void encode_file(){
 
 	while (!in_file.eof()){
 		next_character = in_file.get();
-			
 		if (isdigit(character)){
 			number_mode = true;
 			current_number = current_number*10 + char_to_int(character);
-		} else if (number_mode){
+		} else if (number_mode){//werkt niet als laatste char in file getal is
 			lychrel(current_number);
 			number_mode = false;
 			current_number = 0;
 		}
-
+		
 		if (character == next_character){
 			same_character_count++;
 			out_file.put(same_character_count);
@@ -94,42 +140,11 @@ void encode_file(){
 		}
 		character = next_character;
 	}
-
 	in_file.close();
 	out_file.close();
 }
-int reverse_int(int n){
-	long to_return;
-	while (n>9){
-		to_return = to_return*10 + n %10;
-		n = n/10;
-	}
-	if (to_return > INT_MAX) return to_return;
-	else return -1;
-}
-bool next_step_possible(int n, int m){
-	return (INT_MAX - n > m);
-}
-void lychrel(int start){
-	int current_step = start;
-	int inversion = reverse_int(start);
-	int step_count = 0;
-	while (true){
-		if (not next_step_possible(current_step, inversion)){
-			cout << "De inversie bij de huidige stap opte tellen zou in een integer overflow resulteren." << endl;
-			cout << start << "Zou dus een lychrel-getal kunnen zijn." << endl;
-			break;
-		} else if (inversion == current_step){
-			cout << "Na " << step_count << " omkeringen, zijn we bij het palindroomgetal " << current_step << " aangekomen.";
-			cout << start << " is dus geen lychrel-getal.";
-			break;
-		}
-		step_count ++;
-		current_step = current_step + inversion;
-		inversion = reverse_int(current_step);
-	}
-}
-
 int main(){
+	char testchar;
 	encode_file();
+	cin >> testchar;
 }
