@@ -99,7 +99,7 @@ void encode_file(){
 	out_file.close();
 }
 int reverse_int(int n){
-	double to_return;
+	long to_return;
 	while (n>9){
 		to_return = to_return*10 + n %10;
 		n = n/10;
